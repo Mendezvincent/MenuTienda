@@ -1,5 +1,6 @@
 package arreglo;
 
+import com.sun.source.tree.ContinueTree;
 import java.util.Scanner;
 
 /**
@@ -12,58 +13,131 @@ public class Arreglo {
     abarrotes ,panadería , verduras, lácteos. DENTRO de cada sección existen 6 productos, 
     dependiendo de lonque mirella escoja para comprar sacar el monto que va a comprar
     */
+        static String section [] = {"abarrotes","panaderia","verdura","lacteos"};
+        static String abarrotes [] = {"arroz","fideos","trome","atun","legia","pollo"};
+        static double precioA [] =  {1.20,1.50,1.00,2.50,0.50,3.00};
+        static String panaderia [] = {"pan redondo","pan cacho","pan molde","pan france","pan integral","pan bicocho"};
+        static double precioP [] =  {0.50,1.50,1.00,2.50,0.50,3.00};
+        static String verdura [] = {"cebolla","zanaoria","apio","lechuca","tomate","brocoli"};
+        static double precioV [] =  {0.20,0.50,1.00,2.50,0.50,3.00};
+        static String lacteos [] = {"leche","yougur","mantequilla","queso freco"," queso parmesano","queso mosarela"};
+        static double precioL [] =  {1.50,2.50,3.00,2.50,0.50,3.00};
+        static double total = 0; int cantidad, cantidadElegida = 0;
+        static Scanner input = new Scanner(System.in);
+        static int opcion = 0,elecionSec,Neejir = 0;
     public static void main(String[] args) {
-        String section [] = {"abarrotes","panaderia","verdura","lacteos"};
-        String productoA [] = {"arroz","fideos","trome","atun","legia","pollo"};
-        double precioA [] =  {1.20,1.50,1.00,2.50,0.50,3.00};
-        String productoP [] = {"pan redondo","pan cacho","pan molde","pan france","pan integral","pan bicocho"};
-        double precioP [] =  {0.50,1.50,1.00,2.50,0.50,3.00};
-        String productoV [] = {"cebolla","zanaoria","apio","lechuca","tomate","brocoli"};
-        double precioV [] =  {0.20,0.50,1.00,2.50,0.50,3.00};
-        String productoL [] = {"leche","yougur","mantequilla","queso freco"," queso parmesano","queso mosarela"};
-        double precioL [] =  {1.50,2.50,3.00,2.50,0.50,3.00};
-        double total;
+        System.out.println("elija la section:");
         
-        Scanner scanner = new Scanner(System.in);
-        int opcion;
-        
-        do {
-            mostrarMenu();
-            System.out.print("Seleccione una opción: ");
-            opcion = scanner.nextInt();
-            
-            switch(opcion) {
-                case 1:
-                    System.out.println("Ha seleccionado la opción 1.");
-                    break;
-                case 2:
-                    System.out.println("Ha seleccionado la opción 2.");
-                    break;
-                case 3:
-                    System.out.println("Ha seleccionado la opción 3.");
-                    break;
-                case 0:
-                    System.out.println("Saliendo del programa...");
-                    break;
-                default:
-                    System.out.println("Opción no válida. Por favor, seleccione una opción válida.");
-                    break;
-            }
-        } while(opcion != 0);
-        
-        scanner.close();
-    
-        
-        
-    }
-    
-        public static void mostrarMenu() {
-        System.out.println("=== MENÚ ===");
-        System.out.println("1. Opción 1");
-        System.out.println("2. Opción 2");
-        System.out.println("3. Opción 3");
-        System.out.println("0. Salir");
-        System.out.println("============");
-    }
+        for(String set : section){
+            System.out.println("("+ Neejir +")" + set);
+            Neejir++;
+        }
+        System.out.println("escoger preoducto");
+        elecionSec =  input.nextInt();
+        switch (section[elecionSec]) {
+            case "abarrotes" -> {
 
+            }
+            case "panaderia" -> {
+           
+            }
+            case "verdura" ->{
+          
+            }
+            case "lacteos" ->{
+               
+            }
+        }
+            
+    }
+    
+    public void getAbarrotes(){
+                System.out.println("section " + section[elecionSec]);
+                System.out.println("elegir producto");
+                while(opcion != 10){
+                    Neejir = 0;
+                    for(String a : abarrotes){
+                        System.out.println("("+ Neejir +")" + a);
+                        Neejir++;
+                    }
+                    elecionSec =  input.nextInt();
+                    System.out.println("producto selecionado " + abarrotes[elecionSec] + " precio " +precioA[elecionSec]);
+                    System.out.println("canidad del producto");
+                    cantidad = input.nextInt();
+                    total += precioA[elecionSec]*cantidad;
+                    cantidadElegida++;
+                    System.out.println("Monto a pagar " + total);
+                    System.out.println("producto escogido" + cantidadElegida);
+                    System.out.println("desea compra mas producto");
+                    System.out.println("si(9)  no (10)");
+                    opcion = input.nextInt();
+                }
+    
+    }
+    public void getPanaderia(){
+                System.out.println("section " + section[elecionSec]);
+                System.out.println("elegir producto");
+                while(opcion != 10){
+                    Neejir = 0;
+                    for(String a : panaderia){
+                        System.out.println("("+ Neejir +")" + a);
+                        Neejir++;
+                    }
+                    elecionSec =  input.nextInt();
+                    System.out.println("producto selecionado " + panaderia[elecionSec] + " precio " +precioP[elecionSec]);
+                    System.out.println("canidad del producto");
+                    cantidad = input.nextInt();
+                    total += precioP[elecionSec]*cantidad;
+                    cantidadElegida++;
+                    System.out.println("Monto a pagar " + total);
+                    System.out.println("producto escogido" + cantidadElegida);
+                    System.out.println("desea compra mas producto");
+                    System.out.println("si(9)  no (10)");
+                    opcion = input.nextInt();
+                }
+    }
+    public void getVerdura(){
+                System.out.println("section " + section[elecionSec]);
+                System.out.println("elegir producto");
+                while(opcion != 10){
+                    Neejir = 0;
+                    for(String a : verdura){
+                        System.out.println("("+ Neejir +")" + a);
+                        Neejir++;
+                    }
+                    elecionSec =  input.nextInt();
+                    System.out.println("producto selecionado " + verdura[elecionSec] + " precio " +precioV[elecionSec]);
+                    System.out.println("canidad del producto");
+                    cantidad = input.nextInt();
+                    total += precioA[elecionSec]*cantidad;
+                    cantidadElegida++;
+                    System.out.println("Monto a pagar " + total);
+                    System.out.println("producto escogido" + cantidadElegida);
+                    System.out.println("desea compra mas producto");
+                    System.out.println("si(9)  no (10)");
+                    opcion = input.nextInt();
+                }
+    }
+    public void getLacteos(){
+                System.out.println("section " + section[elecionSec]);
+                System.out.println("elegir producto");
+                while(opcion != 10){
+                    Neejir = 0;
+                    for(String a : lacteos){
+                        System.out.println("("+ Neejir +")" + a);
+                        Neejir++;
+                    }
+                    elecionSec =  input.nextInt();
+                    System.out.println("producto selecionado " + lacteos[elecionSec] + " precio " +precioL[elecionSec]);
+                    System.out.println("canidad del producto");
+                    cantidad = input.nextInt();
+                    total += precioA[elecionSec]*cantidad;
+                    cantidadElegida++;
+                    System.out.println("Monto a pagar " + total);
+                    System.out.println("producto escogido" + cantidadElegida);
+                    System.out.println("desea compra mas producto");
+                    System.out.println("si(9)  no (10)");
+                    opcion = input.nextInt();
+                }
+    }
 }
