@@ -20,7 +20,7 @@ public class Arreglo {
         static double precioV [] =  {0.20,0.50,1.00,2.50,0.50,3.00};
         static String lacteos [] = {"leche","yougur","mantequilla","queso freco"," queso parmesano","queso mosarela"};
         static double precioL [] =  {1.50,2.50,3.00,2.50,0.50,3.00};
-        static double total = 0; int cantidad, cantidadElegida = 0;
+        static double total = 0; static int cantidad, cantidadElegida = 0; 
         static Scanner input = new Scanner(System.in);
         static int opcion = 0,elecionSec,Neejir = 0;
     public static void main(String[] args) {
@@ -31,13 +31,19 @@ public class Arreglo {
             System.out.println("si(9) no(12)");
             opcion =  input.nextInt();
         }            
+        System.out.println("total a pagar: " + total + " cantida de productos" + cantidadElegida);
     }
     //funciones
     public void menuInicio(){
         System.out.println("elija la section:");
         for(String set : section){
             System.out.println("("+ Neejir +")" + set);
-            Neejir++;
+            if(Neejir < section.length){
+                Neejir++;
+            }else{
+                Neejir = 0;
+            }
+            
         }
         System.out.println("escoger preoducto");
         elecionSec =  input.nextInt();
@@ -55,7 +61,10 @@ public class Arreglo {
                getLacteos();
             }
         }
+
     }
+    
+    
     public void getAbarrotes(){
                 System.out.println("section " + section[elecionSec]);
                 System.out.println("elegir producto");
