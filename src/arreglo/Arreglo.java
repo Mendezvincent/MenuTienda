@@ -1,6 +1,4 @@
 package arreglo;
-
-import com.sun.source.tree.ContinueTree;
 import java.util.Scanner;
 
 /**
@@ -26,8 +24,17 @@ public class Arreglo {
         static Scanner input = new Scanner(System.in);
         static int opcion = 0,elecionSec,Neejir = 0;
     public static void main(String[] args) {
+        Arreglo test =  new Arreglo();
+        while(opcion != 12){
+            test.menuInicio();
+            System.out.println("va a seguir comprando");
+            System.out.println("si(9) no(12)");
+            opcion =  input.nextInt();
+        }            
+    }
+    //funciones
+    public void menuInicio(){
         System.out.println("elija la section:");
-        
         for(String set : section){
             System.out.println("("+ Neejir +")" + set);
             Neejir++;
@@ -36,21 +43,19 @@ public class Arreglo {
         elecionSec =  input.nextInt();
         switch (section[elecionSec]) {
             case "abarrotes" -> {
-
+                getAbarrotes();
             }
             case "panaderia" -> {
-           
+                getPanaderia();
             }
             case "verdura" ->{
-          
+                getVerdura();
             }
             case "lacteos" ->{
-               
+               getLacteos();
             }
         }
-            
     }
-    
     public void getAbarrotes(){
                 System.out.println("section " + section[elecionSec]);
                 System.out.println("elegir producto");
@@ -58,7 +63,11 @@ public class Arreglo {
                     Neejir = 0;
                     for(String a : abarrotes){
                         System.out.println("("+ Neejir +")" + a);
-                        Neejir++;
+                        if(Neejir < lacteos.length){
+                            Neejir++;
+                        }else{
+                            Neejir = 0;
+                        }
                     }
                     elecionSec =  input.nextInt();
                     System.out.println("producto selecionado " + abarrotes[elecionSec] + " precio " +precioA[elecionSec]);
@@ -81,7 +90,11 @@ public class Arreglo {
                     Neejir = 0;
                     for(String a : panaderia){
                         System.out.println("("+ Neejir +")" + a);
-                        Neejir++;
+                        if(Neejir < lacteos.length){
+                            Neejir++;
+                        }else{
+                            Neejir = 0;
+                        }
                     }
                     elecionSec =  input.nextInt();
                     System.out.println("producto selecionado " + panaderia[elecionSec] + " precio " +precioP[elecionSec]);
@@ -103,7 +116,11 @@ public class Arreglo {
                     Neejir = 0;
                     for(String a : verdura){
                         System.out.println("("+ Neejir +")" + a);
-                        Neejir++;
+                        if(Neejir < lacteos.length){
+                            Neejir++;
+                        }else{
+                            Neejir = 0;
+                        }
                     }
                     elecionSec =  input.nextInt();
                     System.out.println("producto selecionado " + verdura[elecionSec] + " precio " +precioV[elecionSec]);
@@ -125,7 +142,11 @@ public class Arreglo {
                     Neejir = 0;
                     for(String a : lacteos){
                         System.out.println("("+ Neejir +")" + a);
-                        Neejir++;
+                        if(Neejir < lacteos.length){
+                            Neejir++;
+                        }else{
+                            Neejir = 0;
+                        }
                     }
                     elecionSec =  input.nextInt();
                     System.out.println("producto selecionado " + lacteos[elecionSec] + " precio " +precioL[elecionSec]);
