@@ -3,7 +3,6 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Main.java to edit this template
  */
 package vectores;
-
 import java.util.Scanner;
 
 /**
@@ -13,18 +12,32 @@ import java.util.Scanner;
 public class taskDos {
     static double Eprecio;
     static String nombreC, menuElegido;
+    static int Ncomensal = 0, opcion = 0, elecion;
+    static String name;
     static Scanner input =  new Scanner(System.in);
     public static void main(String[] args) {
-        int Ncomensal = 0, opcion = 0, elecion;
         System.out.print("numeros de comensales: ");
         Ncomensal = input.nextInt();
         System.out.println("numeros de comensales: " + Ncomensal);
-        String name;
+        inico();
+    }
+    static void inico(){
         while(opcion != 10){
+            nom();
+            mostra();
+            System.out.println("desea escoger otro menu?");
+            System.out.println("si (9) o no (10)");
+            opcion = input.nextInt();
+        }
+    }
+    static void nom(){
+        System.out.println("cual es tu nombre?");
+        name =  input.next();
+        System.out.println("hola " + name);
+        nombreC = name;
+    }
+    static void mostra(){
             for(int M = 0 ; M < Ncomensal;M++){
-                System.out.println("cual es tu nombre?");
-                name = nombre(Ncomensal);
-                System.out.println("hola " + name);
                 System.out.println("(1) Menú #1");
                 System.out.println("(2) Menú #2");
                 System.out.println("(3) Menú #3 ");
@@ -33,45 +46,43 @@ public class taskDos {
                 while(opcion != 12){
                     if(elecion > 0 && elecion < 4 ){
                         switch (elecion) {
-                            case 1 -> menuOne();
-                            case 2 -> menuDos();
-                            case 3 -> menuTres();
-                            default -> System.out.println("opcion no validad");
+                            case 1 -> {
+                                menuOne();
+                                tomarPedido(Ncomensal);
+                            }
+                            case 2 ->{ 
+                                menuDos();
+                                tomarPedido(Ncomensal);
+                            }
+                            case 3 -> {
+                                menuTres();
+                                tomarPedido(Ncomensal);
+                            }
+                            default ->{
+                                System.out.println("opcion no validad");
+                            }
+                            
                         }
+                        System.out.println("desea algo mas?");
+                        System.out.println("si(9) o no(12)");
+                        opcion =  input.nextInt();
                     }
                 }
-                tomarPedido(Ncomensal);
-                
             }
-            System.out.println("desea escoger otro menu?");
-            System.out.println("si (9) o no (10)");
-            opcion = input.nextInt();
-        }
-        
     }
     static String tomarPedido(int Npedidos){
         String pedido [][][] = new String [Npedidos][Npedidos][Npedidos];
         String pe = null;
-        for(int n = 0; n < pedido.length; n++){
-            for(int m = 0; m < pedido.length; m++){
-                for(int p = 0; p < pedido.length;p++){
-                    pedido[n][m][p] = nombreC + menuElegido + String.valueOf(Eprecio);
-                    pe = pedido[n][m][p];
+        for (String[][] pedido1 : pedido) {
+            for (int m = 0; m < pedido.length; m++) {
+                for (int p = 0; p < pedido.length; p++) {
+                    pedido1[m][p] = nombreC + menuElegido + String.valueOf(Eprecio);
+                    pe = pedido1[m][p];
                 }
             }
         }
-        
         return pe;
     }
-    static String  nombre(int N){
-        String nombre[] = new String [N];
-        for(int n = 0 ; n <  nombre.length; n++){
-            nombre[n] = input.next();
-            nombreC = nombre(n);
-        }
-        return String.valueOf(nombre);
-    }
-    
     static void menuOne(){
         String menuUNo [] = {"Entrante: Bruschetta con tomate y albahaca" , "Plato principal: Pasta a la carbonara", "Postre: Tiramisú"};
         double precioU = 34.00;
@@ -87,7 +98,9 @@ public class taskDos {
         if(decicion.toLowerCase().equals("si")){
             Eprecio = precioU;
             menuElegido = "Menú 1: Cocina italiana";
-            
+        }else{
+            System.out.println("hola " + name);
+            mostra();
         }
     }
     static void menuDos(){
@@ -105,6 +118,9 @@ public class taskDos {
         if(decicion.toLowerCase().equals("si")){
             Eprecio = precioD;
             menuElegido = "Menú 1: Cocina italiana";
+        }else{
+            System.out.println("hola " + name);
+            mostra();
         }
         
     }
@@ -123,7 +139,9 @@ public class taskDos {
         if(decicion.toLowerCase().equals("si")){
             Eprecio = precioT;
             menuElegido = "Menú 3: Cocina asiática";
+        }else{
+            System.out.println("hola " + name);
+            mostra();
         }
     }
-    
 }
