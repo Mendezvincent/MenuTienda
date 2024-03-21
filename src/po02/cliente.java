@@ -7,7 +7,8 @@ import java.util.Scanner;
  */
 public class cliente {
     private int password[] = new int[4];
-    private int id , opcion = 0;
+    private String op;
+    private int id , opcion = 1;
     private double saldo[] = new double[4];
     private String nombre[] =  new  String[4];
     private Scanner input = new Scanner(System.in);
@@ -23,8 +24,8 @@ public class cliente {
         }
     }
     
-    public boolean validarDate(){
-        boolean psar = false;
+    public void validarDate(){
+        
         System.out.println("\t***************");
         System.out.println("\t** BANCO BCV **");
         System.out.println("\t***************");
@@ -36,15 +37,26 @@ public class cliente {
             if(n.equals(nombre[a])  &&  pass == password[a]){
                 System.out.println("sesion exitosa");
                 id =  a;
-                psar =  true;
+                menu();
+                while(opcion != 0){
+                  System.out.println("(1)depositar");
+                    System.out.println("(2)trasferir");
+                    op =  input.next();
+                     if(op.equals("1")){
+                          depositar();
+                       }else if(op.equals("2")){
+                          trafrerir();
+                      }
+                     System.out.print("desea hacer otra operacion: ");
+                     System.out.println("si(1) o no(0)");
+                     opcion =  input.nextInt();
+                }
                 break;
             }else{
                 System.out.println("user o password no validos");
-                psar =  false;
                 break;
             }
         }
-        return psar;
     }
     
     public void menu(){

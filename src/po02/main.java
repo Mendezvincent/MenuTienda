@@ -17,28 +17,12 @@ public class main {
             System.out.println("\t***************");
             while(opcion != 0){
             System.out.println("que desea hacer?");
-            System.out.println("registra");
-            System.out.println("inicia sesion");
+            System.out.println("(1)registra");
+            System.out.println("(2)inicia sesion");
             op = a.next();
             switch (op) {
-                case "registra" -> clint.registra();
-                case "inicia sesion" -> {
-                    if(clint.validarDate()){
-                        clint.menu();
-                        while(opcion != 0){
-                            System.out.println("depositar");
-                            System.out.println("trasferir");
-                            op =  a.next();
-                            if(op.equals("depositar")){
-                                clint.depositar();
-                            }else if(op.equals("trasferir")){
-                                clint.trafrerir();
-                            }
-                        }
-                    }else{
-                        System.out.println("error por bot v:");
-                    }
-                }
+                case "1" -> clint.registra();
+                case "2" -> clint.validarDate();
                 default -> System.out.println("opcion no validad");
             }
         }
